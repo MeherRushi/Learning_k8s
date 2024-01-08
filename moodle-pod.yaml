@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: moodle-pod
+  labels:
+    app: moodle
+    tier: frontend
+spec:
+  containers:
+  - name: moodle-container
+    image: bitnami/moodle
+    ports:
+    - containerPort: 80
+    env:
+      - name: ALLOW_EMPTY_PASSWORD
+        value: "yes" 

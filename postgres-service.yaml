@@ -1,0 +1,18 @@
+# The default name of the database is the same as that of the user.
+# so name would be postgres as it is the default server
+
+apiVersion: v1
+kind: Service 
+metadata:
+  name: postgres
+  labels:
+    name: postgres-service
+spec:
+  type: ClusterIP
+  ports:
+    - targetPort: 5432
+      port: 5432
+  selector:
+    app: postgres
+    tier: backend
+    
